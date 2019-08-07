@@ -118,6 +118,10 @@ class Graph(nx.DiGraph):
            indices."""
         return [self.get_index(node) for node in nodes]
 
+    def node_indices(self):
+        """Return the indices of the graph nodes."""
+        return nx.get_node_attributes(self, 'index')
+
     def tic(self, timesteps=1):
         """Evolve the system's state according to its mechanisms. Background
            elements are ignored.
