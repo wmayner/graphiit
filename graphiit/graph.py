@@ -32,7 +32,9 @@ class Graph(nx.DiGraph):
     def __init__(self, graph_config=None, state=None, background_nodes=None):
         """ Construct a graph."""
         super().__init__()
-        self._add_from_config(graph_config or [])
+        graph_config = graph_config or []
+        self.config = graph_config
+        self._add_from_config(self.config)
         self.state = state or {}
         self.background_nodes = background_nodes or []
 
