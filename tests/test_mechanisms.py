@@ -3,8 +3,6 @@ import pytest
 
 from graphiit import mechanisms as m
 
-# TODO: test remaining gates
-
 def check(mechanism, expected):
     """Check that the mechanism gives the expected results."""
     for inputs, output in expected.items():
