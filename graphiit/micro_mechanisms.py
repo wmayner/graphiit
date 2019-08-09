@@ -35,16 +35,13 @@ def MAJORITY(inputs):
     return sum(inputs) > len(inputs)/2
 
 
-def MAJ(inputs):
-    return MAJORITY(inputs)
+MAJ = MAJORITY
 
 
 def MINORITY(inputs):
     return sum(inputs) <= len(inputs)/2
 
-
-def MIN(inputs):
-    return MINORITY(inputs)
+MIN = MINORITY
 
 
 def PARITY(inputs):
