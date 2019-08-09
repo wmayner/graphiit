@@ -1,5 +1,5 @@
 import graphiit
-from graphiit.micro_mechanisms import AND, OR, XOR
+from graphiit.mechanisms import AND, OR, XOR
 
 graph_conf = [('A', OR, 'B', 'C'),
             ('B', AND, 'A', 'C'),

@@ -3,7 +3,7 @@ import numpy as np
 from pyphi.convert import le_index2state, state2be_index
 from collections import namedtuple
 
-from . import micro_mechanisms
+from . import mechanisms
 
 
 def predict_next_state(graph, current_state):
@@ -83,7 +83,7 @@ def parse_graph_config(graph_config):
         all_inputs.update(inputs)
 
         if isinstance(node_config[1], str):
-            mechanism = micro_mechanisms.MAP[node_config[1]]
+            mechanism = mechanisms.MAP[node_config[1]]
         else:
             mechanism = node_config[1]
 

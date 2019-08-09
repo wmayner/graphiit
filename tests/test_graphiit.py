@@ -2,7 +2,7 @@ import pytest
 import pyphi
 from graphiit import Graph
 from graphiit.example_graphs import oizumi2014_fig4
-from graphiit.micro_mechanisms import XOR, NOT
+from graphiit.mechanisms import XOR, NOT
 from graphiit.utils import * # TODO : name imports explicitly
 # TODO : Split testing of utils into its own file
 

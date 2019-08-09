@@ -1,7 +1,7 @@
 
 import pytest
 
-from graphiit import micro_mechanisms as m
+from graphiit import mechanisms as m
 
 # TODO: test remaining gates
 
