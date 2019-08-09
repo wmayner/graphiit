@@ -66,9 +66,11 @@ class Graph(nx.DiGraph):
         return repr(self)
 
     def parents(self, node):
+        """Return the parents of the given node.j"""
         return list(self.pred[node])
 
     def children(self, node):
+        """Return the children of the given node."""
         return list(self.succ[node])
 
     @property
