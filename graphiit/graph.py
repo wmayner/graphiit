@@ -59,6 +59,12 @@ class Graph(nx.DiGraph):
             for input in inputs:
                 self.add_edge(input, label)
 
+    def __repr__(self):
+        return f'Graph({self.config})'
+
+    def __str__(self):
+        return repr(self)
+
     def parents(self, node):
         return list(self.pred[node])
 
