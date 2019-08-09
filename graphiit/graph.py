@@ -49,8 +49,8 @@ class Graph(nx.DiGraph):
 
         # add nodes before adding any edges,
         # so that they are added to the graph in config file order
-        for label, mechanism, inputs in parsed_config:
-            self.add_node(label, mechanism=mechanism)
+        for index, (label, mechanism, inputs) in enumerate(parsed_config):
+            self.add_node(label, mechanism=mechanism, index=index)
 
         # now add edges
         for label, mechanism, inputs in parsed_config:
