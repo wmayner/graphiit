@@ -13,14 +13,13 @@ def predict_next_state(graph, current_state):
 
     Memory friendly: doesn't require a TPM.
     """
-
     next_state = np.zeros(len(current_state))
     # the following line shouldn't be necessary, but the nx API is broken
-    network_mechanisms = nx.get_node_attributes(graph, "mechanism")
+    network_mechanisms = graph.mechanisms()
     for node in graph.nodes():
         node_index = graph.get_index(node)
-        input_nodes = list(graph.pred[node])
-        if len(input_nodes):
+        input_nodes = graph.parents(node)
+        if input_nodes:
             input_vector = [current_state[graph.get_index(x)] for x in input_nodes]
             node_mechanism = network_mechanisms[node]
             next_state[node_index] = node_mechanism(input_vector)
