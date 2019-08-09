@@ -8,7 +8,7 @@ from . import utils
 
 
 class Graph(nx.DiGraph):
-    """ A malleable IIT graph object supporting easy PyPhi calls.
+    """A malleable IIT graph object supporting easy PyPhi calls.
 
     Keyword Args:
         graph_config (list(tuple)): Config specifying nodes, labels, and edges.
@@ -25,6 +25,7 @@ class Graph(nx.DiGraph):
         node_tokens (list(str)): Printable node IDs in case you didn't give them
             string objects
     """
+
     # Nodes will be in Graph.nodes() in the same order as they were added to the
     #   graph. Order will be preserved by all networkx methods. NO guarantees
     #   are made about edge order.
@@ -83,8 +84,9 @@ class Graph(nx.DiGraph):
         subgraph = super().subgraph(subgraph_nodes)
         subgraph_node_indices = self.get_indices(subgraph.nodes())
         subgraph.state = self.state[subgraph_node_indices]
-        subgraph.background_nodes = [node for node in subgraph.nodes()
-                                     if node in self.background_nodes]
+        subgraph.background_nodes = [
+            node for node in subgraph.nodes() if node in self.background_nodes
+        ]
 
         return subgraph
 
@@ -127,11 +129,11 @@ class Graph(nx.DiGraph):
 
     def node_indices(self):
         """Return the indices of the graph nodes."""
-        return nx.get_node_attributes(self, 'index')
+        return nx.get_node_attributes(self, "index")
 
     def mechanisms(self):
         """Return the mechanisms of the graph nodes."""
-        return nx.get_node_attributes(self, 'mechanism')
+        return nx.get_node_attributes(self, "mechanism")
 
     def tic(self, timesteps=1):
         """Evolve the system's state according to its mechanisms. Background
@@ -170,8 +172,9 @@ class Graph(nx.DiGraph):
     def pyphi_network(self):
         """Yield a PyPhi network corresponding to the graph. PyPhi node indices
            will match graph node indices."""
-        return pyphi.Network(self.tpm, self.connectivity_matrix,
-                             node_labels=self.node_tokens)
+        return pyphi.Network(
+            self.tpm, self.connectivity_matrix, node_labels=self.node_tokens
+        )
 
     def pyphi_subsystem(self):
         """Yield a PyPhi subsystem corresponding to the graph in its current
