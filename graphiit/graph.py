@@ -122,6 +122,10 @@ class Graph(nx.DiGraph):
         """Return the indices of the graph nodes."""
         return nx.get_node_attributes(self, 'index')
 
+    def mechanisms(self):
+        """Return the mechanisms of the graph nodes."""
+        return nx.get_node_attributes(self, 'mechanism')
+
     def tic(self, timesteps=1):
         """Evolve the system's state according to its mechanisms. Background
            elements are ignored.
