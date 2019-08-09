@@ -17,6 +17,14 @@ def test_AND():
         (0, 1): False,
         (1, 0): False,
         (1, 1): True,
+        (0, 0, 0): False,
+        (0, 0, 1): False,
+        (0, 1, 0): False,
+        (0, 1, 1): False,
+        (1, 0, 0): False,
+        (1, 0, 1): False,
+        (1, 1, 0): False,
+        (1, 1, 1): True,
     })
 
 
@@ -26,6 +34,14 @@ def test_OR():
         (0, 1): True,
         (1, 0): True,
         (1, 1): True,
+        (0, 0, 0): False,
+        (0, 0, 1): True,
+        (0, 1, 0): True,
+        (0, 1, 1): True,
+        (1, 0, 0): True,
+        (1, 0, 1): True,
+        (1, 1, 0): True,
+        (1, 1, 1): True,
     })
 
 
@@ -37,6 +53,23 @@ def test_COPY():
     # Can only have one input
     with pytest.raises(AssertionError):
         m.COPY((0, 1))
+
+
+def test_NOR():
+    check(m.NOR, {
+        (0, 0): True,
+        (0, 1): False,
+        (1, 0): False,
+        (1, 1): False,
+        (0, 0, 0): True,
+        (0, 0, 1): False,
+        (0, 1, 0): False,
+        (0, 1, 1): False,
+        (1, 0, 0): False,
+        (1, 0, 1): False,
+        (1, 1, 0): False,
+        (1, 1, 1): False,
+    })
 
 
 def test_NOT():
@@ -55,8 +88,13 @@ def test_XOR():
         (0, 1): True,
         (1, 0): True,
         (1, 1): False,
+        (0, 0, 0): False,
+        (0, 0, 1): True,
         (0, 1, 0): True,
+        (0, 1, 1): False,
+        (1, 0, 0): True,
         (1, 0, 1): False,
+        (1, 1, 0): False,
         (1, 1, 1): True,
     })
 
@@ -67,7 +105,29 @@ def test_MAJORITY():
         (0, 1): False,
         (1, 0): False,
         (1, 1): True,
+        (0, 0, 0): False,
+        (0, 0, 1): False,
         (0, 1, 0): False,
+        (0, 1, 1): True,
+        (1, 0, 0): False,
         (1, 0, 1): True,
+        (1, 1, 0): True,
         (1, 1, 1): True,
+    })
+
+
+def test_PARITY():
+    check(m.PARITY, {
+        (0, 0): True,
+        (0, 1): False,
+        (1, 0): False,
+        (1, 1): True,
+        (0, 0, 0): True,
+        (0, 0, 1): False,
+        (0, 1, 0): False,
+        (0, 1, 1): True,
+        (1, 0, 0): False,
+        (1, 0, 1): True,
+        (1, 1, 0): True,
+        (1, 1, 1): False,
     })
