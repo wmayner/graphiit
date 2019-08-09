@@ -1,8 +1,8 @@
 from graphiit.mechanisms import AND, OR, XOR
 
-graph_conf = [
-    ("A", OR, "B", "C"), 
-    ("B", AND, "A", "C"), 
+graph_config = [
+    ("A", OR, "B", "C"),
+    ("B", AND, "A", "C"),
     ("C", XOR, "A", "B"),
 ]
 
