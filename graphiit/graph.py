@@ -57,6 +57,12 @@ class Graph(nx.DiGraph):
             for input in inputs:
                 self.add_edge(input, label)
 
+    def parents(self, node):
+        return list(self.pred[node])
+
+    def children(self, node):
+        return list(self.succ[node])
+
     @property
     def foreground_nodes(self):
         """All nodes not frozen as background."""
