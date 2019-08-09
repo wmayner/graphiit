@@ -1,7 +1,8 @@
+from collections import namedtuple
+
 import networkx as nx
 import numpy as np
 from pyphi.convert import le_index2state, state2be_index
-from collections import namedtuple
 
 from . import mechanisms
 

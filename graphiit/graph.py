@@ -1,9 +1,10 @@
+from collections import OrderedDict
+
 import networkx as nx
 import numpy as np
 import pyphi
 
 from . import utils
-from collections import OrderedDict
 
 
 class Graph(nx.DiGraph):
