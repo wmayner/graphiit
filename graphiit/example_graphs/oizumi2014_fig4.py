@@ -1,4 +1,3 @@
-import graphiit
 from graphiit.mechanisms import AND, OR, XOR
 
 graph_conf = [
