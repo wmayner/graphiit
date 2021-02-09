@@ -1,6 +1,5 @@
 # Lambdas avoided for easier debugging
 
-from toolz import curry
 import numpy as np
 
 
@@ -55,12 +54,6 @@ def PAR(inputs):
     return PARITY(inputs)
 
 
-@curry
-def NAKA_RUSHTON(threshold, exponent, weights, inputs):
-    input_strength = np.sum(np.array(weights) * np.array(inputs))**exponent
-    return input_strength / (threshold**exponent + input_strength)
-
-
 MAP = {
     'AND': AND,
     'NAND': NAND,
@@ -75,5 +68,4 @@ MAP = {
     'MIN': MIN,
     'PARITY': PARITY,
     'PAR': PAR,
-    'NAKA_RUSHTON': NAKA_RUSHTON,
 }
